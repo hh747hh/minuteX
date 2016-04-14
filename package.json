@@ -1,0 +1,22 @@
+{
+  "name": "minutex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hh747hh/minutex.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hh747hh/minutex/issues"
+  },
+  "homepage": "https://github.com/hh747hh/minutex#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
