@@ -16,7 +16,7 @@ app.engine(".hbs", hbs({
   defaultLayout:  "layout-main"
 }));
 app.use("/assets", express.static("public"));
-
+app.use(parser.urlencoded({extended: true}));
 
 
 app.get("/", function(req, res){
@@ -47,7 +47,11 @@ app.post("/exercises", function(req, res){
   });
 });
 
-
+app.post("/:name", function(req, res){
+  Exercise.findOneAndUpdate(req.params, req.body.exercise, {new: true}).then(function(response){
+    res.redirect("/"+ response.name);
+  });
+});
 
 
 
