@@ -4,3 +4,10 @@
   <a href="/exercises/{{exercise.name}}">{{exercise.name}}</a>
 </h3>
 {{/each}}
+
+<form action="/exercises" method="POST">
+  <input type="text" name="exercise[name]" value="name" />
+  <input type="text" name="exercise[imageUrl]" value="imageurl" />
+  <textarea name="exercise[benefits]" value="do you have any joke to share?"></textarea>
+  <button type="submit">Create New</button>
+</form>

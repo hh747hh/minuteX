@@ -47,11 +47,20 @@ app.post("/exercises", function(req, res){
   });
 });
 
+app.post("/exercises/:name/delete", function(req, res){
+  Exercise.findOneAndRemove({name: req.params.name}).then(function(){
+    res.redirect("/exercises")
+  });
+});
+
+
 app.post("/:name", function(req, res){
   Exercise.findOneAndUpdate(req.params, req.body.exercise, {new: true}).then(function(response){
     res.redirect("/"+ response.name);
   });
 });
+
+
 
 
 

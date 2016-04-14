@@ -1,11 +1,15 @@
 <h2>{{exercise.name}}</h2>
-<h2>Best Exercise</h2>
+<h2>Today is a Great Day!!!</h2>
 <img src="{{exercise.imageUrl}}"/>
 <h2>{{exercise.benefits}}</h2>
+
 
 <form action="/{{exercise.name}}" method="POST">
   <input type="text" name="exercise[name]" value="{{exercise.name}}" />
   <input type="text" name="exercise[imageUrl]" value="{{exercise.imageUrl}}" />
   <textarea name="exercise[benefits]">{{exercise.benefits}}</textarea>
   <button type="submit">Update</button>
+</form>
+<form action="/exercises/{{exercise.name}}/delete" method="POST">
+  <button type="submit">Delete</button>
 </form>
