@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 
 var ObjectId = mongoose.Schema.Types.ObjectId;
-var ExerciseSchema = new Schema(
+var ExerciseSchema = new mongoose.Schema(
 
  {
    name: String,
@@ -13,3 +13,5 @@ var ExerciseSchema = new Schema(
 
 mongoose.model("Exercise", ExerciseSchema);
 mongoose.connect("mongodb://localhost/minutex");
+
+module.exports = mongoose;
