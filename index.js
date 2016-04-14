@@ -1,5 +1,6 @@
 var express   = require("express");
 var hbs       = require("express-handlebars");
+var parser    = require("body-parser");
 var mongoose  = require("./db/connection");
 
 var app = express();
@@ -23,12 +24,31 @@ app.get("/", function(req, res){
 });
 
 app.get("/exercises", function(req, res){
-  Exercise.find({}.then(function(exercises){
+  Exercise.find({}).then(function(exercises){
     res.render("index", {
       exercises: exercises
     });
-  }));
+  });
 });
+
+app.get("/exercises/:name", function(req, res){
+  Exercise.findOne({name: req.params.name}).then(function(response){
+    res.render("show", {
+      exercise: response
+
+    });
+  });
+});
+
+
+app.post("/exercises", function(req, res){
+  Exercise.create(req.body.exercise).then(function(exercise){
+    res.redirect("/exercises/"+ exercise.name);
+  });
+});
+
+
+
 
 
 
