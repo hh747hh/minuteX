@@ -12,6 +12,11 @@ var ExerciseSchema = new mongoose.Schema(
 );
 
 mongoose.model("Exercise", ExerciseSchema);
-mongoose.connect("mongodb://localhost/minutex");
+
+if(process.env.NODE_ENV == "production"){
+  mongoose.connect(process.env.MONGOLAB_URI);
+}else{
+  mongoose.connect("mongodb://localhost/minutex");
+}
 
 module.exports = mongoose;
